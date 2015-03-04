@@ -1,6 +1,13 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+  def new_product(image_url)
+    Product.new(title: 'My book title',
+                description: 'yyy',
+                price: 334.4,
+                image_url: image_url)
+  end
+
  test "product attributes should not be empty" do
    product = Product.new
    # - general assertion
@@ -13,9 +20,7 @@ class ProductTest < ActiveSupport::TestCase
  end
 
   test "product price must be positive" do
-    product = Product.new(title: 'My book title',
-    description: "yyy",
-    image_url: 'zzz.jpg')
+    product = new_product('fred.jpg')
 
     product.price = -1
     #
@@ -24,5 +29,19 @@ class ProductTest < ActiveSupport::TestCase
 
     product.price = 1
     assert product.valid?
+  end
+
+  test "image url" do
+    ok = %w{fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg http://a.b.c/x/y/z/fred.gif}
+    bad = %w{fred.doc fred.jpg.more fred.gif/more}
+
+    ok.each do |name|
+      assert new_product(name).valid?, "#{name} should be valid"
+    end
+
+    bad.each do |name|
+      assert new_product(name).invalid?, "#{name} should be invalid"
+    end
+
   end
 end
