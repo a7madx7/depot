@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  description: MyText
+ruby:
+  title: Programming in ruby 1.9 & 2.0
+  description: Ruby is the most elegent and smart programming language out there
   image_url: ruby.jpg
-  price: 9.99
+  price: 39.99
 
-two:
-  title: Another text
-  description: MyText
-  image_url: MyString
-  price: 9.99
+java:
+  title: java for dummies
+  description: java is your best friend in the world of android app development
+  image_url: java.png
+  price: 49.99
