@@ -1,5 +1,12 @@
-<h1>New Product</h1>
+<h1 class="ui header">Create a new product</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', products_path %>
+<%= link_to('Back', url: products_path, class: 'ui animated button') do %>
+    <div class="hidden content">
+      Back
+    </div>
+    <div class="visible content">
+      <i class="left arrow icon"></i>
+    </div>
+<% end %>
