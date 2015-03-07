@@ -6,5 +6,6 @@ class Product < ActiveRecord::Base
                 with: %r{\.(gif|jpg|png)\Z}i,
                 message: 'Must be a URL for gif, jpg or png image'
   }
-
+  
+    
 end
