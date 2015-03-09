@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'products#index'
+  root 'store#index', as: :store
   resources :products
+  get 'store/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
